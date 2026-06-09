@@ -191,7 +191,7 @@ logger.warning("Rate limit approaching", current=95, max=100)
 
 To set up the project for development:
 
-1. Ensure you have Python 3.9+ installed.
+1. Ensure you have Python 3.11+ installed.
 2. Install dependencies (using `pdm`, `hatch`, or `pip`):
    ```bash
    pip install -e ".[dev]"
