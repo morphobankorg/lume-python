@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [26.6.1] - 2026-06-12
+
+### ⚙️ Miscellaneous Tasks
+
+- Update release workflow job name and condition
+
 ## [26.6.0] - 2026-06-12
 
 ### 🚀 Features
@@ -64,6 +70,7 @@ All notable changes to this project will be documented in this file.
 - Release 2026.6.1
 - Update project version to 26.2.1
 - Update version pattern in bumpver configuration
+- Release 26.6.0
 
 ### Build
 
