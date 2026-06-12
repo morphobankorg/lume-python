@@ -10,8 +10,12 @@ from python_logging.config import (
     StdoutFormat,
     settings as default_settings,
 )
-from python_logging.service import get_console_renderer_format, get_rich_format
-from python_logging.integrations.otel import add_otel_context, setup_otel_provider
+from python_logging.service import (
+    add_otel_context,
+    get_console_renderer_format,
+    get_rich_format,
+    setup_otel_provider,
+)
 
 # Export get_logger for use throughout the application
 get_logger = structlog.get_logger
