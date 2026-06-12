@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2026.6.1] - 2026-06-12
+
+### 🎨 Styling
+
+- Clean up whitespace and formatting in tests
+
 ## [2026.6.0] - 2026-06-12
 
 ### 🚀 Features
@@ -56,6 +62,7 @@ All notable changes to this project will be documented in this file.
 - Remove release-please configuration
 - Add automated release workflow
 - Revert project version to 2026.2.0
+- Release 2026.6.0
 
 ### Build
 
