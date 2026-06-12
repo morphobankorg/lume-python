@@ -2,7 +2,7 @@ import logging
 from unittest import mock
 
 
-from python_logging.integrations.otel import add_otel_context, setup_otel_provider
+from python_logging.service import add_otel_context, setup_otel_provider
 
 
 def test_add_otel_context_with_active_span():
@@ -19,7 +19,7 @@ def test_add_otel_context_with_active_span():
 
         # Mock trace.get_current_span to return our span since the global provider isn't set
         with mock.patch(
-            "python_logging.integrations.otel.trace.get_current_span", return_value=span
+            "python_logging.service.trace.get_current_span", return_value=span
         ):
             result = add_otel_context(logging.getLogger(), "info", event_dict)
 
@@ -27,21 +27,19 @@ def test_add_otel_context_with_active_span():
             assert result["span_id"] == format(ctx.span_id, "016x")
 
 
-@mock.patch("python_logging.integrations.otel.get_windmill_context")
-def test_add_otel_context_fallback_to_windmill(mock_get_windmill_context):
-    mock_get_windmill_context.return_value = {
-        "trace_id": "windmill_trace",
-        "span_id": "windmill_span",
-    }
+@mock.patch("python_logging.service.settings")
+def test_add_otel_context_fallback_to_settings(mock_settings):
+    mock_settings.trace_id = "settings_trace"
+    mock_settings.span_id = "settings_span"
 
     event_dict = {}
     result = add_otel_context(logging.getLogger(), "info", event_dict)
 
-    assert result["trace_id"] == "windmill_trace"
-    assert result["span_id"] == "windmill_span"
+    assert result["trace_id"] == "settings_trace"
+    assert result["span_id"] == "settings_span"
 
 
-@mock.patch("python_logging.integrations.otel.settings")
+@mock.patch("python_logging.service.settings")
 def test_setup_otel_provider_no_endpoint(mock_settings):
     mock_settings.otel_exporter_otlp_endpoint = None
     mock_settings.otel_exporter_otlp_logs_endpoint = None
@@ -49,7 +47,7 @@ def test_setup_otel_provider_no_endpoint(mock_settings):
     assert provider is None
 
 
-@mock.patch("python_logging.integrations.otel.settings")
+@mock.patch("python_logging.service.settings")
 def test_setup_otel_provider_with_endpoint(mock_settings):
     mock_settings.otel_exporter_otlp_endpoint = "http://localhost:4317"
     mock_settings.otel_exporter_otlp_logs_endpoint = None

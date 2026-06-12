@@ -10,10 +10,7 @@ from python_logging.config import (
     settings,
 )
 from python_logging.integrations import (
-    add_otel_context,
-    get_windmill_context,
-    otel,
-    setup_otel_provider,
+    get_windmill_traceparent,
     windmill,
 )
 from python_logging.main import (
@@ -21,8 +18,10 @@ from python_logging.main import (
     setup_logging,
 )
 from python_logging.service import (
+    add_otel_context,
     get_console_renderer_format,
     get_rich_format,
+    setup_otel_provider,
 )
 
 __all__ = [
@@ -33,10 +32,9 @@ __all__ = [
     "get_console_renderer_format",
     "get_logger",
     "get_rich_format",
-    "get_windmill_context",
+    "get_windmill_traceparent",
     "integrations",
     "main",
-    "otel",
     "service",
     "settings",
     "setup_logging",
