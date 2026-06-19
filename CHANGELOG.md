@@ -2,11 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [26.6.5] - 2026-06-19
+
+### 🧪 Testing
+
+- Add integration test for clean console logs
+
 ## [26.6.4] - 2026-06-19
 
 ### ⚙️ Miscellaneous Tasks
 
 - Add remove_processors_meta to structlog
+- Release 26.6.4
 
 ## [26.6.3] - 2026-06-18
 
