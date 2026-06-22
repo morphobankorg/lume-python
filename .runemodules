@@ -1,0 +1,12 @@
+[runemodule ".agents/skills/posthog-python/modules/posthog-python"]
+	url = https://github.com/posthog/posthog-python/tree/main
+	path = .agents/skills/posthog-python/modules/posthog-python
+[runemodule ".agents/skills/posthog/modules/posthog-python"]
+	url = https://github.com/posthog/posthog-python/tree/main
+	path = .agents/skills/posthog/modules/posthog-python
+[runemodule ".agents/skills/sentry/modules/sentry-python"]
+	url = https://github.com/getsentry/sentry-python/tree/master
+	path = .agents/skills/sentry/modules/sentry-python
+[runemodule ".agents/skills/windmill/modules/windmill"]
+	url = https://github.com/windmill-labs/windmill/tree/main
+	path = .agents/skills/windmill/modules/windmill
