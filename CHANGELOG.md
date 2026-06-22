@@ -2,11 +2,29 @@
 
 All notable changes to this project will be documented in this file.
 
+## [26.6.7] - 2026-06-22
+
+### 🚀 Features
+
+- [**breaking**] Add architecture and coding standards
+- Add windmill development skill
+
+### 📚 Documentation
+
+- Add posthog skill definition
+- Add sentry skill documentation
+
+### ⚙️ Miscellaneous Tasks
+
+- Update gitignore with rune and agent paths
+- Add agent skill modules
+
 ## [26.6.6] - 2026-06-22
 
 ### ⚙️ Miscellaneous Tasks
 
 - Update dependencies and add colorama
+- Release 26.6.6
 
 ## [26.6.5] - 2026-06-19
 
