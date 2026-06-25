@@ -1,149 +1,59 @@
-# Changelog
+# Changelog v1.0.0
 
-All notable changes to this project will be documented in this file.
+## Breaking Changes
 
-## [0.1.0] - 2026-06-22
+*   **Project Rename to Lume**
+    The project has been renamed from `python-logging` to `Lume`.
+    *   **Migration:** Update all import paths from `python-logging` to `lume`. Remove all references to legacy logging services.
+    *   **Commits:** [8](https://github.com/aurumorinc/python-logging/commit/8), [9](https://github.com/aurumorinc/python-logging/commit/9), [20](https://github.com/aurumorinc/python-logging/commit/20)
 
-### 🚀 Features
+*   **Python 3.11 Requirement**
+    The project now requires Python 3.11 or higher.
+    *   **Migration:** Ensure your runtime environment is upgraded to Python 3.11+. Update CI/CD pipelines and Dockerfiles to reflect this requirement.
+    *   **Commits:** [87](https://github.com/aurumorinc/python-logging/commit/87), [88](https://github.com/aurumorinc/python-logging/commit/88), [91](https://github.com/aurumorinc/python-logging/commit/91)
 
-- [**breaking**] Add architecture and coding standards
-- Add windmill development skill
+*   **Logging Configuration Refactor**
+    Replaced environment-based logging configuration with a new `stdout_format` Enum and refactored format functions.
+    *   **Migration:** Replace environment-based configuration with the `stdout_format` Enum. Update existing logging format calls to use the new modular functions.
+    *   **Commits:** [101](https://github.com/aurumorinc/python-logging/commit/101), [99](https://github.com/aurumorinc/python-logging/commit/99), [100](https://github.com/aurumorinc/python-logging/commit/100)
 
-### 📚 Documentation
+*   **Windmill Traceparent Rename**
+    Renamed `get_windmill_context` to `get_windmill_traceparent` and updated the return type.
+    *   **Migration:** Update all calls from `get_windmill_context` to `get_windmill_traceparent` and adjust handling logic for the new return type.
+    *   **Commits:** [81](https://github.com/aurumorinc/python-logging/commit/81)
 
-- Add posthog skill definition
-- Add sentry skill documentation
+*   **Architecture & Coding Standards**
+    Introduced global architectural rules, Domain-Driven Design (DDD) principles, and updated Python coding standards.
+    *   **Migration:** Refactor existing codebases to align with the new DDD and global architectural rules.
+    *   **Commits:** [34](https://github.com/aurumorinc/python-logging/commit/34), [120](https://github.com/aurumorinc/python-logging/commit/120), [121](https://github.com/aurumorinc/python-logging/commit/121)
 
-### ⚙️ Miscellaneous Tasks
+*   **Versioning Scheme Reset**
+    Reset versioning from date-based to semantic versioning (MAJOR.MINOR.PATCH).
+    *   **Migration:** No code migration required; update internal documentation and release tracking to reflect the new semantic versioning scheme.
+    *   **Commits:** [4](https://github.com/aurumorinc/python-logging/commit/4)
 
-- Update gitignore with rune and agent paths
-- Add agent skill modules
+## Features
 
-## [26.6.6] - 2026-06-22
+*   **Agent Skills Modules**
+    Added documentation and skill modules for PostHog, Sentry, Windmill, and Langfuse.
+    *   **Commits:** [26](https://github.com/aurumorinc/python-logging/commit/26), [29](https://github.com/aurumorinc/python-logging/commit/29), [30](https://github.com/aurumorinc/python-logging/commit/30)
 
-### ⚙️ Miscellaneous Tasks
+*   **Core Project Initialization**
+    Initialized project structure, including Pydantic settings, OpenTelemetry (OTel) integration, and core logging capabilities.
+    *   **Commits:** [103](https://github.com/aurumorinc/python-logging/commit/103), [104](https://github.com/aurumorinc/python-logging/commit/104), [105](https://github.com/aurumorinc/python-logging/commit/105)
 
-- Update dependencies and add colorama
-- Release 26.6.6
+## Improvements
 
-## [26.6.5] - 2026-06-19
+*   **Dependency Management**
+    Upgraded project dependencies, added `colorama`, and removed redundant packages.
+    *   **Commits:** [37](https://github.com/aurumorinc/python-logging/commit/37), [86](https://github.com/aurumorinc/python-logging/commit/86)
 
-### 🧪 Testing
+*   **Telemetry Refinements**
+    Added processors to strip OTel IDs from logs and centralized OTel logic within the service module.
+    *   **Commits:** [40](https://github.com/aurumorinc/python-logging/commit/40), [43](https://github.com/aurumorinc/python-logging/commit/43), [50](https://github.com/aurumorinc/python-logging/commit/50)
 
-- Add integration test for clean console logs
+## Infrastructure
 
-### ⚙️ Miscellaneous Tasks
-
-- Release 26.6.5
-
-## [26.6.4] - 2026-06-19
-
-### ⚙️ Miscellaneous Tasks
-
-- Add remove_processors_meta to structlog
-- Release 26.6.4
-
-## [26.6.3] - 2026-06-18
-
-### 📚 Documentation
-
-- Update pull request template instructions
-
-### ⚙️ Miscellaneous Tasks
-
-- Ignore agent plan directory
-- Release 26.6.3
-
-## [26.6.2] - 2026-06-18
-
-### 🚀 Features
-
-- Strip OpenTelemetry IDs from log output
-
-### 🐛 Bug Fixes
-
-- Update processors to support list instead of item
-
-### ⚙️ Miscellaneous Tasks
-
-- Release 26.6.2
-
-## [26.6.1] - 2026-06-12
-
-### ⚙️ Miscellaneous Tasks
-
-- Update release workflow job name and condition
-- Release 26.6.1
-
-## [26.6.0] - 2026-06-12
-
-### 🚀 Features
-
-- Add architectural and coding standards
-- Add OpenTelemetry integration for logging
-- Add windmill context extractor
-- Expose integration modules in package init
-- Add LoggingSettings configuration class
-- Add logging environment configurations
-- Implement core logging configuration
-- Expose package modules in init file
-- [**breaking**] Replace environment with stdout_format
-- [**breaking**] Upgrade minimum python version to 3.11
-- Implement automatic traceparent generation
-
-### 🚜 Refactor
-
-- Support injectable logging settings
-- Rename logging format functions
-- Remove redundant settings config
-- Move otel logic to service module
-- [**breaking**] Rename get_windmill_context to get_windmill_traceparent
-- Update fallback context to use settings
-- Reorganize imports in main module
-
-### 📚 Documentation
-
-- Add documentation to README
-- Update logging documentation and architecture
-- Update documentation for logging integration
-- Update minimum python version requirement
-
-### 🎨 Styling
-
-- Clean up whitespace and formatting in tests
-
-### 🧪 Testing
-
-- Add unit tests for OTel integration
-- Add unit tests for get_windmill_context
-- Add unit tests for logging settings
-- Add unit tests for logging setup
-- Add conftest.py file
-- Update logging settings tests
-- Update logging setup unit tests
-
-### ⚙️ Miscellaneous Tasks
-
-- Add pull request template
-- Generate lock file
-- Bump project version to 2026.1.1
-- Bump version to 2026.1.4
-- Bump version to 2026.2.0
-- *(main)* Release python-logging 2027.0.0
-- Remove release-please configuration
-- Add automated release workflow
-- Revert project version to 2026.2.0
-- Release 2026.6.0
-- Release 2026.6.1
-- Update project version to 26.2.1
-- Update version pattern in bumpver configuration
-- Release 26.6.0
-
-### Build
-
-- Add project configuration and dependencies
-- [**breaking**] Update python version to 3.11
-- Upgrade project dependencies
-- Switch to centralized release workflow
-
-<!-- generated by git-cliff -->
+*   **CI/CD Pipeline**
+    Implemented a centralized automated release workflow and updated job conditions.
+    *   **Commits:** [54](https://github.com/aurumorinc/python-logging/commit/54), [71](https://github.com/aurumorinc/python-logging/commit/71), [72](https://github.com/aurumorinc/python-logging/commit/72)
