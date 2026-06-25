@@ -48,18 +48,18 @@ class LoggingSettings(BaseSettings):
     wm_workspace: Optional[str] = None
     wm_base_url: Optional[str] = None
 
-    @computed_field # type: ignore
+    @computed_field  # type: ignore
     @property
     def is_windmill_env(self) -> bool:
         return bool(self.wm_token and self.wm_workspace)
 
-    @computed_field # type: ignore
+    @computed_field  # type: ignore
     @property
     def trace_id(self) -> str:
         """Extracts the trace_id from the traceparent."""
         return self.traceparent.split("-")[1]
 
-    @computed_field # type: ignore
+    @computed_field  # type: ignore
     @property
     def span_id(self) -> str:
         """Extracts the span_id from the traceparent."""

@@ -43,15 +43,15 @@ def test_thread_safe_contextvars():
 
         # Assert
         output_str = out.getvalue()
-        
+
         import re
 
         expected_matches = re.finditer(r"expected_uuid=([a-f0-9\-]+)", output_str)
         thread_matches = re.finditer(r"thread_uuid=([a-f0-9\-]+)", output_str)
-        
+
         expected_list = [m.group(1) for m in expected_matches]
         thread_list = [m.group(1) for m in thread_matches]
-        
+
         assert len(expected_list) == num_threads * messages_per_thread
         assert len(thread_list) == num_threads * messages_per_thread
 

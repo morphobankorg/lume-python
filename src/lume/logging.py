@@ -56,6 +56,7 @@ def setup_logging(settings: Optional[LoggingSettings] = None) -> None:
 
     # Shared processors
     from typing import List, Any
+
     shared_processors: List[Any] = [
         structlog.contextvars.merge_contextvars,
         structlog.stdlib.add_log_level,
